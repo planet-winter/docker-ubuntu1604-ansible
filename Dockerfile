@@ -5,8 +5,8 @@ MAINTAINER Daniel Winter
 RUN apt-get update && apt-get install -y --no-install-recommends \
        python-software-properties \
        software-properties-common \
-       rsyslog systemd systemd-cron sudo
-RUN rm -Rf /var/lib/apt/lists/* \
+       rsyslog systemd systemd-cron sudo \\
+    && rm -Rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 RUN sed -i 's/^\($ModLoad imklog\)/#\1/' /etc/rsyslog.conf
